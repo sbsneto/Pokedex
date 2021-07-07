@@ -4,7 +4,11 @@
         <div>
             <img id="pokeball" src="../assets/Pokeball.png" alt="Pokéball">
             <h1 class="d-inline">Pokedéx</h1>
-            <v-text-field class="d-block justify-center" v-model="name"></v-text-field>
+            <v-text-field 
+                class="d-block justify-center" 
+                v-model="name"
+                label="Who's That Pokémon?">
+            </v-text-field>
             <v-btn 
                 id="search-button" 
                 class="justify-center"
@@ -12,7 +16,7 @@
                 color="red accent-1"
                 @keyup.enter="getPokemonByName"
                 @click="getPokemonByName()">
-                    <v-icon left>mdi-card-search</v-icon>
+                    <v-icon left>mdi-pokeball</v-icon>
                     search
             </v-btn>
             <v-btn 
@@ -31,7 +35,8 @@
 
                 <v-img
                     :src="sprite"
-                    height="200px">
+                    height="200px"
+                    width="200px">
                 </v-img>
                 <v-card-title>
                     {{Pokemon.name.toUpperCase()}}
@@ -87,11 +92,15 @@
 </template>
 
 <script>
+/* eslint-disable */
 import DataPokemonService from '../services/PokemonService';
+import { mdiPokeball } from '@mdi/js';
 
 export default {
     name: 'Pokedex',
-
+    components: {
+        'mdi-pokeball' : mdiPokeball,
+    },
     data(){
         return {
             name: "",
@@ -108,6 +117,7 @@ export default {
         getPokemonByName(){
              if(this.typeNames){
                 this.typeNames = [];
+                this.show = false;
                 DataPokemonService.getPokemonByName(this.name.toLowerCase()).then( res => {
                 this.Pokemon = res.data;
                 console.log(this.Pokemon);
@@ -127,6 +137,7 @@ export default {
         },
 
         clearSearch(){
+            this.name = "";
             this.Pokemon = null;
             this.show = false;
         }
