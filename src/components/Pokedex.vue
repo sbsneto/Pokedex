@@ -34,6 +34,7 @@
                 max-width="350">
 
                 <v-img
+                    id="pokemon"
                     :src="sprite"
                     height="200px"
                     width="200px">
@@ -180,7 +181,7 @@ export default {
 }
 
 #pokemon{
-    margin-left: 20px;
+    margin-left: 25px;
     
 }
 </style>
