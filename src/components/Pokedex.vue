@@ -7,6 +7,7 @@
             <v-text-field 
                 class="d-block justify-center" 
                 v-model="name"
+                @keyup.enter="getPokemonByName()"
                 label="Who's That Pokémon?">
             </v-text-field>
             <v-btn 
@@ -14,7 +15,6 @@
                 class="justify-center"
                 rounded    
                 color="red accent-1"
-                @keyup.enter="getPokemonByName()"
                 @click="getPokemonByName()">
                     <v-icon left>mdi-pokeball</v-icon>
                     search
