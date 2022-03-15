@@ -7,7 +7,7 @@
             <v-text-field 
                 class="d-block justify-center" 
                 v-model="name"
-                @keyup.enter="getPokemonByName()"
+                @keyup.enter="getPokemonByName"
                 label="Who's That Pokémon?">
             </v-text-field>
             <v-btn 
