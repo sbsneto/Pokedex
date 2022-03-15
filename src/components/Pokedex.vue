@@ -14,7 +14,7 @@
                 class="justify-center"
                 rounded    
                 color="red accent-1"
-                @keyup.enter="getPokemonByName"
+                @keyup.enter="getPokemonByName()"
                 @click="getPokemonByName()">
                     <v-icon left>mdi-pokeball</v-icon>
                     search
